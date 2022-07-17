@@ -1,24 +1,14 @@
 <template>
-  <v-app-bar :clipped-left="clipped" fixed app>
+  <v-app-bar fixed app>
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-      <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-    </v-btn>
-    <v-btn icon @click.stop="clipped = !clipped">
-      <v-icon>mdi-application</v-icon>
-    </v-btn> -->
-    <!-- <v-btn icon @click.stop="fixed = !fixed">
-      <v-icon>mdi-minus</v-icon>
-    </v-btn> -->
-    <!-- <v-toolbar-title v-text="title" /> -->
+    <v-avatar class="mr-3" color="grey lighten-5 my-auto" size="60">
+      <v-img contain max-height="90%" :src="iconSrc"></v-img>
+    </v-avatar>
     <div class="title-box">
       <div class="title">{{ title }}</div>
       <div class="subtitle">{{ subtitle }}</div>
     </div>
     <v-spacer />
-    <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn> -->
   </v-app-bar>
 </template>
 <script>
@@ -28,7 +18,9 @@ export default defineComponent({
   setup() {
     const title = ref('絵画工房 サービス名')
     const subtitle = ref('By 絵画工房 空蝉')
-    return { title, subtitle }
+    const iconSrc = require('@/assets/image/icon.png')
+    const drawer = ref(false)
+    return { title, subtitle, iconSrc, drawer }
   },
 })
 </script>
